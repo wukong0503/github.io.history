@@ -3,7 +3,7 @@ layout: post
 title:  "java.lang.ClassCastException: org.slf4j.impl.SimpleLoggerFactory cannot be cast to ch.qos.logback.classic.LoggerContext"
 date:   2017-04-24 12:45:45
 categories: Java
-tags: Java, ClassCastException
+tags: Java ClassCastException
 ---
 
 * content
