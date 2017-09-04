@@ -11,6 +11,7 @@ type: page
 
 ## JAVA基础
   * [1. Java Object类]({% post_url 2017-08-18-Java-object %})
+  * [1. Java String]({% post_url 2017-09-04-Java-string %})
 
 ## JVM
 
