@@ -13,9 +13,10 @@ tags: Java
 
 ## 2. String，StringBuffer，StringBuilder的区别
 
-//TODO
-https://www.zhihu.com/question/20101840
-http://www.jb51.net/article/84531.htm
+//TODO  
+https://www.zhihu.com/question/20101840  
+http://www.jb51.net/article/84531.htm  
+http://www.jb51.net/article/78057.htm  
 
 ## 3. ==和equals()
 
@@ -103,3 +104,6 @@ public class Test {
 String s = new String("abc");
 System.out.println(combo == s);
 ```
+
+## 4. String常量池
+> https://zhuanlan.zhihu.com/p/28973077
