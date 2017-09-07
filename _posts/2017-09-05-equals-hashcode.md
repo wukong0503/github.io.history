@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Java中Object类的equals()和hashCode()"
-date: 2017-09-04
+date: 2017-09-05
 categories: Java
 tags: Java
 ---
@@ -9,7 +9,7 @@ tags: Java
 {:toc}
 
 ## 1. 说一说对Object对象中hashCode和equals方法的理解
-```
+```java
   public native int hashCode();
   public boolean equals(Object obj) {
     return (this == obj);
@@ -63,7 +63,7 @@ tags: Java
 
 ## 3. 如何正确的重写equals() 和 hashCode()方法
 **POJO - User.java**
-```
+```java
 public class User {
     private String name;
     private int age;
@@ -75,7 +75,7 @@ public class User {
 **1. 经典方式**  
 这种17和31散列码的想法来自经典的Java书籍——《Effective Java》第九条。下面我们来看看是如何实现的...
 
-```
+```java
 public class User {  
     private String name;  
     private int age;  
@@ -107,7 +107,7 @@ public class User {
 
 **2. JDK 7**  
 对于JDK7及更新版本，你可以是使用java.util.Objects 来重写 equals 和 hashCode 方法，代码如下
-```
+```java
 import java.util.Objects;
 
 public class User {
@@ -139,7 +139,7 @@ public class User {
 
 **3. Apache Commons Lang**  
 或者,您可以使用Apache Commons LangEqualsBuilder 和HashCodeBuilder 方法。代码如下
-```
+```java
 import org.apache.commons.lang3.builder;
 
 public class User {
@@ -174,22 +174,25 @@ public class User {
 ```
 **重写equals的建议**
 * 首先检测 this 与 otherObject 是否引用同一对象
-```
+```java
 if(this==otherObject) return true;
 ```  
 * 然后检测 otherObject是否为 null，如果为 null 返回 false，这是必须的
-```
+```java
 if(otherObject == null) return false;
 ```
 * 其次比较 this 与 otherObject 是否同属于一个类；如果 equals 语义在子类中有所改变，则 使用 getClass 检测
-```
+```java
 if(this.getClass()!=otherObject.getClass()) return false;
 ```
 * 最后将 otherObject 强制转换为当前类型，并进行属性值检测；
   注意：<font color='red'>如果在子类中重写的equals，则需要在重写时首先进行 super.equals(other) 判断</font>
 
+## 4. 总结
+<font color='red'>对于重写 euqals ，要很据实际业务逻辑来，并满足上述的设计要求；一旦重写了 equals 那就必须重写 hashcode，除非你保证你的对象不会被放到 Hash 实现的容器里；不重写的话就会导致 Hash 容器认为两个属性相同的对象是2个，而不是业务上的1个。</font>  
 
 
-参考：  
+
+## 参考：  
 [重写equal()时为什么也得重写hashCode()之深度解读equal方法与hashCode方法渊源](http://blog.csdn.net/javazejian/article/details/51348320)  
 [浅谈 java中的 equals 和 hashcode](https://mritd.me/2016/02/02/%E6%B5%85%E8%B0%88-java%E4%B8%AD%E7%9A%84-equals-%E5%92%8C-hashcode/)
