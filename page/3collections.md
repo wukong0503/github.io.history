@@ -13,7 +13,9 @@ type: page
   * [1. Java Object类]({% post_url 2017-08-18-Java-object %})
   * [2. Java String]({% post_url 2017-09-04-Java-string %})
   * [3. equals()和hashCode()]({% post_url 2017-09-05-equals-hashcode %})
-  * [4. Java值传递和引用传递]()
+  * [4. Java对象的序列化（Object Serialization）]({% post_url 2017-09-06-object-serialization %})
+  * [5. Java中的值传递和引用传递]({})
+
 
 ## JVM
 
