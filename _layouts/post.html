@@ -64,9 +64,9 @@ layout: default
 
         {% include previousAndNext.html %}
 
-        <h2 id="comments">Comments</h2>
-        {% include comments.html %}
-
+        <!-- <h2 id="comments">Comments</h2>
+        {% include comments.html %} -->
+        <div id="gitmentContainer"></div>
 
     </div>
     <button class="anchor"><i class="fa fa-anchor"></i></button>
@@ -88,7 +88,19 @@ layout: default
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
+var gitment = new Gitment({
+    owner: 'wukong0503@gmail.com',
+    repo: 'wukong0503.github.io',
+    oauth: {
+        client_id: 'db9461f0847b1e221c87',
+        client_secret: 'f0edd648496f9493b1f7f24e90166ff0b6edbdee',
+    },
+});
+gitment.render('gitmentContainer');
+
 /**
  * target _blank
  */
